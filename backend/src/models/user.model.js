@@ -21,9 +21,11 @@ const userSchema = new mongoose.Schema({
 
     passWord: {
         type: String,
-        required: true,
+        required: true
     }
-},
+}, 
+
+    
 
     { collection: 'user' })
 

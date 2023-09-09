@@ -6,6 +6,7 @@ import {connectDB} from './config/db.js';
 
 import courseRouter from './routes/course.route.js';
 import authRouter from './routes/auth.route.js';
+import userRouter from './routes/user.route.js';
 
 dotenv.config();
 connectDB();
@@ -20,7 +21,7 @@ app.use(urlencoded({ extended: false }));
 // routes
 app.use("/api/course", courseRouter);
 app.use("/api/auth", authRouter);
-// router(app);
+app.use("/api/user", userRouter);
 
 const port = 3000;
 

@@ -94,7 +94,7 @@ export default {
         },
 
         async Register() {
-            axios.post(`http://localhost:3000/auth/register`, this.user)
+            await axios.post(`http://localhost:3000/api/auth/register`, this.user)
                 .then(() => {
                     this.user = ''
                 })
@@ -105,7 +105,7 @@ export default {
 
         async Login() {
             console.log(this.user);
-            axios.post(`http://localhost:3000/auth/login`, this.user)
+            await axios.post(`http://localhost:3000/api/auth/login`, this.user)
                 .then(res => {
                     this.user = res.data
                     //this.$router.replace({path:})

@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 const authController = {
     async signUp(req, res) {
         const { fullName, userName, email, passWord } = req.body;
+        console.log(req.body);
         try {
             const salt = await bcrypt.genSalt(10);
             const hashed = await bcrypt.hash(passWord, salt);
@@ -13,7 +14,6 @@ const authController = {
                 email: email,
                 passWord: hashed
             })
-
             const user = await newUser.save();
             return res.status(200).json(user)
         } catch (error) {

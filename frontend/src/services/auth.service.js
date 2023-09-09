@@ -1,7 +1,7 @@
 import createApi from './api.server.js';
 
 class authService {
-    constructor(baseUrl = 'http://localhost:3000/auth') {
+    constructor(baseUrl = 'http://localhost:3000/api/auth') {
         this.api = createApi(baseUrl);
     }
 
