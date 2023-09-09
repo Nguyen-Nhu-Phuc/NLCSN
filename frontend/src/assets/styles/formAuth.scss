@@ -1,0 +1,165 @@
+.auth__title {
+    color: $dark-color;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bg__img {
+    position: relative;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: $height-header-nav;
+}
+
+.bg__img--register {
+    background-image: url('../assets/images/bg_auth.jpg');
+}
+
+.bg__img--login {
+    background-image: url('../assets/images/bg_auth.jpg');
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 2px solid $gray-color;
+    border-radius: 5px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: $black-color;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fefefe;
+    z-index: 2;
+}
+
+.form__group {
+    margin: 18px 0;
+
+    &.row {
+        align-items: center;
+    }
+}
+
+.form-group__label {
+    font-family: 'Montserrat', sans-serif;
+    text-align: right;
+}
+
+.form__input {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 1.3rem;
+    border-radius: 3px;
+}
+
+.form__input--sex {
+    margin-left: 10px;
+}
+
+.form-sex__input {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-group__btn {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+.form__navigate {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.navigate__btn {
+    padding: 8px 10px;
+    border-radius: 3px;
+    border: 1px solid #eee;
+    background-color: rgb(35, 243, 94);
+    opacity: 1;
+    font-size: 1.1rem;
+    cursor: pointer;
+    
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.navigate-btn__link {
+    text-decoration: none;
+    color: $white-color;
+}
+
+.cancel__btn,
+.submit__btn {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: $white-color;
+    border: 1px solid $white-color;
+    border-radius: 3px;
+    font-size: 1.1rem;
+}
+
+.cancel__btn {
+    margin-right: 10px;
+    background-color: $blue-color;
+
+    &:hover {
+        background-color: $blue-light-color;
+    }
+}
+
+.submit__btn {
+    background-color: $green-color;
+
+    &:hover {
+        background-color: $green-light-color;
+    }
+
+    &:disabled {
+        background-color: $gray-color;
+        color: $black-color;
+        cursor: default;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1023px) {
+    .form {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 739px) {
+    .auth__title {
+        font-size: 1.6rem;
+    }
+
+    .form,
+    .form__input {
+        font-size: 1.1rem;
+    }
+
+    .form__group {
+        margin: 9px 0;
+    }
+
+    .form-group__btn {
+        margin-top: 0.5rem;
+    }
+
+    .cancel__btn,
+    .submit__btn {
+        padding: 6px 8px;
+        font-size: 1.1rem;
+    }
+}

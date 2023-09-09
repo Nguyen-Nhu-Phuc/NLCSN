@@ -1,0 +1,123 @@
+$height-header-nav: 76px;
+$height-logo: 72px;
+
+$header-nav-color: rgba(0, 0, 0, 0.9);
+
+$width-logo: 240px;
+
+$black-color: #333;
+$dark-color: #000;
+$white-color: #fff;
+$primary-color: #d4b073;
+$red-dark-color: #A52A2A;
+$gray-color: #ddd;
+$blue-color: rgb(55, 55, 252);
+$blue-light-color: rgb(79, 79, 248);
+$green-color: rgb(2, 173, 2);
+$green-light-color: rgb(3, 194, 3);
+
+.w-100 {
+  width: 100%;
+}
+
+.w-90 {
+  width: 90%;
+}
+
+.w-85 {
+  width: 85%;
+}
+
+.w-80 {
+  width: 80%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-70 {
+  width: 70%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.h-80 {
+  height: 80%;
+}
+
+.h-75 {
+  height: 75%;
+}
+
+.h-70 {
+  height: 70%;
+}
+
+.h-60 {
+  height: 60%;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+.h-40 {
+  height: 40%;
+}
+
+.h-30 {
+  height: 30%;
+}
+
+.h-20 {
+  height: 20%;
+}
+
+.h-10 {
+  height: 10%;
+}
+
+.h-5 {
+  height: 5%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
