@@ -1,4 +1,5 @@
 import User from "../models/user.model.js";
+import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 
 const authController = {
@@ -37,8 +38,16 @@ const authController = {
                 return res.status(400).json("Wrong Password!");
             }
             if (user && vaidPassword) {
+                const accessToken = jwt.sign({
+                    id: user.id,
+                    admin: user.admin
+                },
+                    process.env.JWT_ACCSESS_KEY,
+                    { expiresIn: "2h" }
+                );
+
                 const { passWord, ...other } = user._doc;
-                return res.status(200).json({ ...other });
+                return res.status(200).json({ ...other, accessToken });
             }
         }
         catch (err) {

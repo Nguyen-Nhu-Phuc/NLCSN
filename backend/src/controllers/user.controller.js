@@ -1,7 +1,7 @@
 import User from '../models/user.model.js';
 
 const userController = {
-    //[GET] GET ALL USER
+    //[GET] /api/user
     getAllUser: async (req, res) => {
         try {
             const user = await User.find();
@@ -11,7 +11,7 @@ const userController = {
         }
     },
 
-    //[DELETE] DELETE USER
+    //[DELETE] /api/user
     deleteUser: async(req, res) => {
         const {id} = req.body;
         try {
