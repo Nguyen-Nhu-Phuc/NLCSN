@@ -22,6 +22,29 @@ const authController = {
         }
     },
 
+    //GENERATE_ACCSESS_TOKEN
+    genarateAccessToken: (user) => {
+        return jwt.sign(
+            {
+                id: user.id,
+                admin: user.admin
+            },
+            process.env.JWT_ACCSESS_KEY,
+            { expiresIn: "2h" }
+        );
+    },
+    //GENERATE_REFRESH_TOKEN
+    genarateRegreshToken: (user) => {
+        return jwt.sign(
+            {
+                id: user.id,
+                admin: user.admin
+            },
+            process.env.JWT_REFRESH_KEY,
+            { expiresIn: "365d" }
+        );
+    },
+
     async signIn(req, res) {
         const { userName, passWord } = req.body;
         try {
@@ -38,22 +61,28 @@ const authController = {
                 return res.status(400).json("Wrong Password!");
             }
             if (user && vaidPassword) {
-                const accessToken = jwt.sign({
-                    id: user.id,
-                    admin: user.admin
-                },
-                    process.env.JWT_ACCSESS_KEY,
-                    { expiresIn: "2h" }
-                );
-
+                const accessToken = authController.genarateAccessToken(user);
+                const refreshToken = authController.genarateRegreshToken(user);
+                res.cookie("refreshToken", refreshToken,{
+                    httpOnly:true,
+                    secure:false,
+                    path:"/",
+                    sameSite: "strict",
+                })
                 const { passWord, ...other } = user._doc;
-                return res.status(200).json({ ...other, accessToken });
+                return res.status(200).json({ ...other, accessToken});
             }
         }
         catch (err) {
             return res.status(500).json(err);
         }
     },
+
+    requestRefreshToken: async(req,res) => {
+        //Take refresh Token from user
+        const refreshToken = req.cookies.refreshToken;
+        res.status(200).json(refreshToken);
+    }
 };
 
 export default authController;

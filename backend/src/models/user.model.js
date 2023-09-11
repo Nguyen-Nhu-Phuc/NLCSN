@@ -22,12 +22,16 @@ const userSchema = new mongoose.Schema({
     passWord: {
         type: String,
         required: true
-    }
+    },
+    admin: {
+        type: Boolean,
+        default: false
+    },
 }, 
 
-    
+    {timestamps:true},
 
-    { collection: 'user' })
+    { collection: 'user' });
 
 const User = mongoose.model('User', userSchema);
 
