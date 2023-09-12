@@ -63,12 +63,9 @@ const authController = {
             if (user && vaidPassword) {
                 const accessToken = authController.genarateAccessToken(user);
                 const refreshToken = authController.genarateRegreshToken(user);
-                res.cookie("refreshToken", refreshToken,{
-                    httpOnly:true,
-                    secure:false,
-                    path:"/",
-                    sameSite: "strict",
-                })
+                user.refreshToken = refreshToken;
+
+                await user.save();
                 const { passWord, ...other } = user._doc;
                 return res.status(200).json({ ...other, accessToken});
             }
@@ -79,9 +76,37 @@ const authController = {
     },
 
     requestRefreshToken: async(req,res) => {
-        //Take refresh Token from user
-        const refreshToken = req.cookies.refreshToken;
-        res.status(200).json(refreshToken);
+        const { userName} = req.body;
+        const user = await User.findOne({ userName })
+
+        if (!user.refreshToken)
+            return res.status(401).json("You 're not a auth!!!");
+
+        jwt.verify(user.refreshToken, process.env.JWT_REFRESH_KEY, async (err, data)=>{
+            if (err) {
+                console.log(err);
+            }
+            //Create a new access, refresh token
+            const newAccessToken = authController.genarateAccessToken(data);
+            const newRefreshToken = authController.genarateRegreshToken(data);
+            user.refreshToken = newRefreshToken;
+            await user.save();
+            
+            res.status(200).json(newAccessToken);
+        })
+    },
+
+    async signOut(req, res) {
+        const { userName} = req.body;
+        const user = await User.findOne({ userName })
+            if (!user) {
+                return res.status(400).json("Wrong username!");
+            }
+        
+        user.refreshToken = undefined;
+
+        await user.save();
+        return res.status(200).json("Cút Thành Công!!!!")
     }
 };
 

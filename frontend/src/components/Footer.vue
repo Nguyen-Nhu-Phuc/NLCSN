@@ -1,5 +1,5 @@
 <template>
-    <div class="frame grid wide">
+    <div class="frame grid">
         <div class="row">
             <div class="frame__logo col lg-4">
                 <a href="" class="logo"> Huī<span>Tài Láng();</span></a>

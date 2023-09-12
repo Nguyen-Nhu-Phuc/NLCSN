@@ -1,6 +1,7 @@
 import express, { urlencoded } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
+import cookieParser from 'cookie-parser'
 
 import {connectDB} from './config/db.js';
 
@@ -16,6 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(urlencoded({ extended: false }));
+app.use(cookieParser());
 
 
 // routes
