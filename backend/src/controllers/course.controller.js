@@ -34,6 +34,16 @@ const CourseController = {
         }catch(err) {
             res.status(500).json(err);
         }
+    },
+
+    //[GET] /api/cousre/stored
+    getAllCourse: async(req, res) => {
+        try{
+            const all = await Course.find({});
+            return res.status(200).json(all);
+        }catch(err) {
+            res.status(500).json(err);
+        }
     }
 };
 
