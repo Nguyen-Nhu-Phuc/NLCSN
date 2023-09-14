@@ -1,6 +1,6 @@
 <template>
-    <div class="frame grid">
-        <div class="row">
+    <div class="footer frame">
+        <!-- <div class="row"> -->
             <div class="frame__logo col lg-4">
                 <a href="" class="logo"> Huī<span>Tài Láng();</span></a>
                 <p>Wellcome to  Huī Tài Láng teacher</p>
@@ -40,7 +40,7 @@
                 <li><a href="#">HTML</a></li>
                 <li><a href="#">CSS</a></li>
             </div>
-        </div>
+        <!-- </div> -->
     </div>
 </template>
 <script>
@@ -49,9 +49,17 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.footer {
+    display: flex !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 2.5rem 0 !important;
+}
 .frame {
     background-color: #121212;
-    border-radius: 25px;
+    // border-radius: 25px;
 }
 
 .frame__logo {
